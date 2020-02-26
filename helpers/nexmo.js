@@ -28,17 +28,36 @@ const sendVerificationSMS = async (countryCode, phone, testVerificationCode) => 
                 verification.requestId = verificationCode
                 await verification.save()
             }
-            let options = {
-                method: 'post',
-                url: `${config.NEXMO_REST_URL}/sms/json`,
-                form: {
-                    from: 'HumanID',
-                    text: `Your HumanID verification code is ${verificationCode}`,
-                    to: number,
-                    api_key: config.NEXMO_API_KEY, 
-                    api_secret: config.NEXMO_API_SECRET, 
-                },
-                json: true,
+            let options = {};
+            if (countryCode === '1')
+            {
+                options = {
+                    method: 'post',
+                    url: `${config.NEXMO_REST_URL}/sms/json`,
+                    form: {
+                        from: '19592063036',
+                        text: `Your HumanID verification code is ${verificationCode}`,
+                        to: number,
+                        api_key: config.NEXMO_API_KEY, 
+                        api_secret: config.NEXMO_API_SECRET, 
+                    },
+                    json: true,
+                }
+            }
+            else
+            {
+                options = {
+                    method: 'post',
+                    url: `${config.NEXMO_REST_URL}/sms/json`,
+                    form: {
+                        from: 'HumanID',
+                        text: `Your HumanID verification code is ${verificationCode}`,
+                        to: number,
+                        api_key: config.NEXMO_API_KEY, 
+                        api_secret: config.NEXMO_API_SECRET, 
+                    },
+                    json: true,
+                }
             }
     
             // send OTP
