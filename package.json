@@ -33,7 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mysql2": "^2.1.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "request": "^2.88.0",
     "sequelize": "^5.18.4",
     "sqlite3": "^4.1.1",
